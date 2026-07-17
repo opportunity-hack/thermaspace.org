@@ -202,6 +202,14 @@ Squarespace — Greg must set A @ → 76.76.21.21 (+ CNAME www →
 cname.vercel-dns.com) in Squarespace DNS, or move NS to ns{1,2}.vercel-dns.com;
 domain+www already attached to the project.
 
+PUBLIC GITHUB (2026-07-17): pushed to
+https://github.com/opportunity-hack/thermaspace.org (main, gh auth as gregv).
+Pre-push secret sweep clean; root .gitignore excludes build//.gradle/
+local.properties/keystores/.venv/.vercel/.playwright-mcp. The Stripe test-
+coupon name/code was scrubbed from this file (public repo) — it lives only in
+the Stripe dashboard. GA4 ID + Payment Link in site HTML are public by design.
+⚠ This file is now public: keep secrets/coupon codes out of it.
+
 v2 features (all built+installed): MRUK snapping — MRUKFeature(this, systemManager),
 runtime USE_SCENE permission → loadSceneFromDevice(); capture raycasts gaze via
 raycastRoom(room.anchor.uuid, …, SurfaceType.PLANE_VOLUME) with raycastEnvironment

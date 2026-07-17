@@ -1,5 +1,12 @@
 # FLIR One USB-C thermal camera toolkit
 
+[![ThermaSpace on Quest 3 — live thermal overlay on passthrough](thermaspace.org/media/general_overview_nux.jpg)](https://thermaspace.org/)
+
+This is the code behind **[ThermaSpace](https://thermaspace.org/)** — plug a
+FLIR One into a Quest 3/3S and see live radiometric heat overlaid on the real
+world. Built by [Opportunity Hack](https://ohack.dev) and open-sourced so
+everyone can benefit.
+
 Talks to a FLIR One (Gen2/Gen3/Pro, VID `0x09CB` PID `0x1996`) over USB using the
 reverse-engineered EEVblog / [flirone-v4l2](https://github.com/fnoop/flirone-v4l2) protocol.
 
@@ -16,7 +23,10 @@ alerts, /export): [API.md](API.md)** — both apps serve a LAN-only API.
 | Path | What |
 |---|---|
 | `flirone.py` | Python driver + CLI (`live`, `capture`, `info`) — **works on Linux hosts** |
+| `quest3-spatial/` | **ThermaSpace** — Meta Spatial SDK app: passthrough heatmap overlay, world-locked captures, drawing, gallery (pictured above) |
 | `quest3-app/` | Quest 3 / Android native app: on-headset viewer + MJPEG server |
+| `mount/` | 3D-printable Quest 3/3S visor mounts for the FLIR One (STL + OpenSCAD) |
+| `thermaspace.org/` | Static site deployed at [thermaspace.org](https://thermaspace.org/) |
 | `mac_viewer.py` | Mac viewer for the Quest stream (or just open `http://<quest-ip>:8080`) |
 | `probe.py` | USB descriptor dump of the device |
 

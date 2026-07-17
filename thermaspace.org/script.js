@@ -57,6 +57,8 @@
     } else if (href.indexOf('https://forms.gle/') === 0) {
       var name = /beta/i.test(a.textContent) ? 'join_beta' : 'contact_form';
       track(name, { link_location: linkLocation(a) });
+    } else if (href.indexOf('https://github.com/opportunity-hack/') === 0) {
+      track('github_click', { link_location: linkLocation(a) });
     } else if (href.indexOf('/stl/') === 0) {
       track('file_download', {
         file_name: href.split('/').pop(),

@@ -209,6 +209,10 @@ local.properties/keystores/.venv/.vercel/.playwright-mcp. The Stripe test-
 coupon name/code was scrubbed from this file (public repo) — it lives only in
 the Stripe dashboard. GA4 ID + Payment Link in site HTML are public by design.
 ⚠ This file is now public: keep secrets/coupon codes out of it.
+Site open-source callout (2026-07-17, deployed): #ohack section links the
+GitHub repo + "View on GitHub" CTA, FAQ entry (visible + FAQPage JSON-LD),
+footer GitHub link; script.js fires github_click GA event on
+github.com/opportunity-hack/* clicks. README got hero image + site link.
 
 v2 features (all built+installed): MRUK snapping — MRUKFeature(this, systemManager),
 runtime USE_SCENE permission → loadSceneFromDevice(); capture raycasts gaze via

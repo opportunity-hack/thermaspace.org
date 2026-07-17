@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:horizonos="http://schemas.horizonos/sdk">
+
+    <horizonos:uses-horizonos-sdk
+        horizonos:minSdkVersion="69"
+        horizonos:targetSdkVersion="69" />
+
+    <uses-feature android:name="android.hardware.vr.headtracking" android:required="true" />
+    <!-- not required=true: Horizon OS may not advertise the system feature flag
+         even though the hardware supports USB host, and the store filters
+         installs on required features; presence is checked at runtime -->
+    <uses-feature android:name="android.hardware.usb.host" android:required="false" />
+
+    <uses-feature android:name="oculus.software.handtracking" android:required="false" />
+    <uses-permission android:name="com.oculus.permission.HAND_TRACKING" />
+
+    <uses-feature android:name="com.oculus.feature.PASSTHROUGH" android:required="true" />
+    <!-- passthrough-only app: disable the boundary entirely so walking between
+         rooms never interrupts with a "reset your boundary" flow (and never
+         drops controllers while the prompt is up). Verified per Meta docs:
+         boundaryless requires the whole app to be non-immersive — true here. -->
+    <uses-feature android:name="com.oculus.feature.BOUNDARYLESS_APP" android:required="true" />
+    <uses-feature android:glEsVersion="0x00030001" />
+
+    <uses-feature android:name="com.oculus.feature.RENDER_MODEL" android:required="false" />
+    <uses-permission android:name="com.oculus.permission.RENDER_MODEL" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.oculus.permission.USE_SCENE" />
+    <uses-permission android:name="com.oculus.permission.USE_ANCHOR_API" />
+
+    <application
+        android:label="ThermaSpace"
+        android:icon="@mipmap/ic_launcher"
+        android:theme="@android:style/Theme.Material.NoActionBar">
+
+        <!-- Quest 3S has the same passthrough + depth + scene stack -->
+        <meta-data android:name="com.oculus.supportedDevices" android:value="quest3|quest3s" />
+        <meta-data android:name="com.oculus.handtracking.version" android:value="V2.0" />
+        <meta-data android:name="com.oculus.vr.focusaware" android:value="true" />
+
+        <uses-native-library android:name="libossdk.oculus.so" android:required="true" />
+
+        <activity
+            android:name=".ImmersiveActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
+            android:launchMode="singleTask"
+            android:excludeFromRecents="false"
+            android:screenOrientation="landscape"
+            android:configChanges="screenSize|screenLayout|orientation|keyboardHidden|keyboard|navigation|uiMode"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.oculus.intent.category.VR" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+            </intent-filter>
+            <meta-data
+                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                android:resource="@xml/device_filter" />
+        </activity>
+    </application>
+</manifest>

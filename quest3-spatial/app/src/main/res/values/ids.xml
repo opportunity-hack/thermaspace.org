@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="panel_control" type="id" />
+    <item name="panel_snapshot" type="id" />
+    <item name="panel_snapshot_portrait" type="id" />
+    <item name="panel_overlay" type="id" />
+    <item name="panel_overlay_portrait" type="id" />
+    <item name="panel_hints_left" type="id" />
+    <item name="panel_hints_right" type="id" />
+    <item name="panel_hints_hand_left" type="id" />
+    <item name="panel_hints_hand_right" type="id" />
+</resources>

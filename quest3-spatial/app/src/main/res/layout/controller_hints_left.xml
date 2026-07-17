@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/hint_card"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LEFT CONTROLLER"
+        android:textColor="#8FA3B8"
+        android:textSize="10sp"
+        android:letterSpacing="0.2"
+        android:paddingBottom="6dp" />
+
+    <LinearLayout style="@style/HintRow">
+        <TextView style="@style/HintChip" android:background="@drawable/hint_chip_alt"
+            android:text="TRIG" />
+        <TextView style="@style/HintLabel" android:text="point &amp; click buttons" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/HintRow">
+        <TextView style="@style/HintChip" android:text="X" />
+        <TextView style="@style/HintLabel" android:text="↩ Undo" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/HintRow">
+        <TextView style="@style/HintChip" android:text="Y / ☰" />
+        <TextView style="@style/HintLabel" android:text="🎛 Bring panel to me" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/HintRow">
+        <TextView style="@style/HintChip" android:background="@drawable/hint_chip_alt"
+            android:text="GRIP" />
+        <TextView style="@style/HintLabel" android:text="✋ Grab things" />
+    </LinearLayout>
+</LinearLayout>

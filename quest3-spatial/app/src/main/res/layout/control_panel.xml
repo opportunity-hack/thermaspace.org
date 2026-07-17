@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F0121820"
+    android:padding="10dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/live_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:contentDescription="Live thermal" />
+
+        <ScrollView
+            android:id="@+id/help_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#E6101418"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/help_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:lineSpacingExtra="4dp"
+                android:padding="14dp" />
+        </ScrollView>
+
+        <!-- shown when no camera frames are arriving -->
+        <TextView
+            android:id="@+id/camera_placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F00E1218"
+            android:gravity="center"
+            android:padding="24dp"
+            android:textColor="#E8EEF6"
+            android:textSize="18sp"
+            android:lineSpacingExtra="6dp"
+            android:visibility="gone"
+            android:text="🔌 Connect your FLIR One" />
+
+        <!-- snapshot gallery -->
+        <LinearLayout
+            android:id="@+id/gallery_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="#F00E1218"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingTop="8dp"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:text="🗂 Saved Captures — compare on one scale" />
+
+            <!-- multi-select: tick boxes, recall the whole set in one tap -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="2dp">
+
+                <Button android:id="@+id/btn_recall_sel" style="@style/PanelButton"
+                    android:backgroundTint="#3D5AFE"
+                    android:text="▶ Recall ticked" />
+                <Button android:id="@+id/btn_untick" style="@style/PanelButton"
+                    android:layout_width="wrap_content" android:layout_weight="0"
+                    android:text="✕ ticks" />
+            </LinearLayout>
+
+            <!-- inline rename: name is BUILT FROM WORD CHIPS (the system
+                 keyboard doesn't reach panel EditTexts on-device) -->
+            <LinearLayout
+                android:id="@+id/rename_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="4dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <EditText
+                        android:id="@+id/rename_input"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="44dp"
+                        android:hint="tap words below to build a name"
+                        android:textColorHint="#7B8794"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:singleLine="true"
+                        android:imeOptions="actionDone"
+                        android:inputType="textCapSentences" />
+                    <Button android:id="@+id/rename_back" style="@style/PanelButton"
+                        android:layout_width="wrap_content" android:layout_weight="0"
+                        android:text="⌫" />
+                    <Button android:id="@+id/rename_save" style="@style/PanelButton"
+                        android:layout_width="wrap_content" android:layout_weight="0"
+                        android:backgroundTint="#3D5AFE" android:text="✔ Save" />
+                    <Button android:id="@+id/rename_cancel" style="@style/PanelButton"
+                        android:layout_width="wrap_content" android:layout_weight="0"
+                        android:text="✕" />
+                </LinearLayout>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+                    <LinearLayout
+                        android:id="@+id/chip_row1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" />
+                </HorizontalScrollView>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+                    <LinearLayout
+                        android:id="@+id/chip_row2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" />
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/gallery_list"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <!-- first-launch guided tour: one card, steps auto-advance on the
+             real action (camera connects, overlay on, first capture) -->
+        <LinearLayout
+            android:id="@+id/nux_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical"
+            android:background="#F5101C2A"
+            android:padding="14dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/nux_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/nux_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="4dp"
+                android:textColor="#DDE6F0"
+                android:textSize="15sp"
+                android:lineSpacingExtra="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="6dp">
+
+                <TextView
+                    android:id="@+id/nux_progress"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#8FA0B4"
+                    android:textSize="13sp" />
+                <Button android:id="@+id/nux_skip" style="@style/PanelButton"
+                    android:layout_width="wrap_content" android:layout_weight="0"
+                    android:text="Skip tour" />
+                <Button android:id="@+id/nux_next" style="@style/PanelButton"
+                    android:layout_width="wrap_content" android:layout_weight="0"
+                    android:backgroundTint="#3D5AFE"
+                    android:text="▸ Next" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/status_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#C9D2DE"
+        android:textSize="13sp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:paddingTop="6dp"
+        android:paddingBottom="4dp"
+        android:text="Waiting for FLIR One… plug it into the headset" />
+
+    <!-- Simple path: always visible -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="2dp">
+
+        <Button android:id="@+id/btn_capture" style="@style/PanelButton"
+            android:layout_weight="1.3"
+            android:backgroundTint="#3D5AFE" android:text="📸 Capture" />
+        <Button android:id="@+id/btn_overlay" style="@style/PanelButton"
+            android:text="👁 Overlay" />
+        <Button android:id="@+id/btn_tools" style="@style/PanelButton"
+            android:text="🔬 Tools ▾" />
+        <Button android:id="@+id/btn_help" style="@style/PanelButton"
+            android:layout_weight="0.5" android:text="?" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="4dp">
+
+        <Button android:id="@+id/btn_snap" style="@style/PanelButton"
+            android:text="🧲 Snap On" />
+        <Button android:id="@+id/btn_undo" style="@style/PanelButton"
+            android:text="↩ Undo" />
+        <Button android:id="@+id/btn_clear" style="@style/PanelButton"
+            android:text="🗑 Clear" />
+    </LinearLayout>
+
+    <!-- 🔬 Tools: pro features, collapsed by default -->
+    <LinearLayout
+        android:id="@+id/tools_rows"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="4dp">
+
+            <Button android:id="@+id/btn_draw" style="@style/PanelButton"
+                android:text="✏️ Draw" />
+            <Button android:id="@+id/btn_gallery" style="@style/PanelButton"
+                android:text="🗂 Gallery" />
+            <Button android:id="@+id/btn_share" style="@style/PanelButton"
+                android:text="📡 Off" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="4dp">
+
+            <Button android:id="@+id/btn_rotate" style="@style/PanelButton"
+                android:text="⟳ 0°" />
+            <Button android:id="@+id/btn_palette" style="@style/PanelButton"
+                android:text="🎨 Iron" />
+            <Button android:id="@+id/btn_span" style="@style/PanelButton"
+                android:text="📏 Auto" />
+            <Button android:id="@+id/btn_iso" style="@style/PanelButton"
+                android:text="Iso Off" />
+            <Button android:id="@+id/btn_unit" style="@style/PanelButton"
+                android:layout_weight="0.6" android:text="°C" />
+        </LinearLayout>
+
+        <!-- span range editor: only visible when span is locked -->
+        <LinearLayout
+            android:id="@+id/span_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="4dp"
+            android:visibility="gone">
+
+            <TextView android:layout_width="0dp" android:layout_weight="0.5"
+                android:layout_height="wrap_content" android:gravity="center"
+                android:textColor="#C9D2DE" android:textSize="13sp" android:text="Lo" />
+            <Button android:id="@+id/btn_lo_dn" style="@style/PanelButton" android:text="−" />
+            <Button android:id="@+id/btn_lo_up" style="@style/PanelButton" android:text="+" />
+            <TextView android:layout_width="0dp" android:layout_weight="0.5"
+                android:layout_height="wrap_content" android:gravity="center"
+                android:textColor="#C9D2DE" android:textSize="13sp" android:text="Hi" />
+            <Button android:id="@+id/btn_hi_dn" style="@style/PanelButton" android:text="−" />
+            <Button android:id="@+id/btn_hi_up" style="@style/PanelButton" android:text="+" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

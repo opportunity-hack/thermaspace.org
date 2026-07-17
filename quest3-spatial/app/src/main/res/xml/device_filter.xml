@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- FLIR One (Gen2/Gen3/Pro): FLIR Systems -->
+    <usb-device vendor-id="2507" product-id="6550"/>
+</resources>

@@ -1,0 +1,66 @@
+{
+    "error_string": "Success.",
+    "export_time": 368,
+    "layer_height": 0.23999999463558197,
+    "plate_index": 0,
+    "prepare_time": 6,
+    "return_code": 0,
+    "sliced_plates": [
+        {
+            "feature_type_times": {
+                "Bottom surface": 6.474029064178467,
+                "Bridge": 52.55615234375,
+                "Custom": 34.65270233154297,
+                "Gap infill": 1.1648627519607544,
+                "Inner wall": 669.8901977539063,
+                "Internal solid infill": 124.94602966308594,
+                "Outer wall": 711.0623779296875,
+                "Overhang wall": 54.598121643066406,
+                "Sparse infill": 364.77447509765625,
+                "Support": 276.8664855957031,
+                "Support interface": 33.86585235595703,
+                "Top surface": 25.514114379882813,
+                "Travel": 425.81695556640625,
+                "Undefined": 410.5024108886719
+            },
+            "filament_change_times": 0,
+            "filaments": [
+                {
+                    "filament_id": "GFG02",
+                    "id": 1,
+                    "main_used_g": 12.73713493347168,
+                    "total_used_g": 14.685038566589355
+                }
+            ],
+            "generate_support_material_time": 154,
+            "id": 1,
+            "infill_time": 17,
+            "layer_filament_change": 0,
+            "main_predication": 2747.505126953125,
+            "make_perimeters_time": 14,
+            "obj_cached_cnt": 0,
+            "objects": [
+                {
+                    "bbox": {
+                        "depth": 56.82223892211914,
+                        "height": 50.0,
+                        "width": 71.36251831054688,
+                        "x": 135.9508819580078,
+                        "y": 127.59725189208984,
+                        "z": 0.0
+                    },
+                    "id": 5,
+                    "name": "flirone-clip-m6.stl",
+                    "triangle_count": 1456
+                }
+            ],
+            "sliced_time": 312,
+            "sliced_time_with_cache": 115,
+            "total_predication": 2766.812744140625,
+            "triangle_count": 1456,
+            "warning_message": ""
+        }
+    ],
+    "sparse_infill_density": 10.0,
+    "wall_loops": 2
+}

@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C0W09F6KMZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C0W09F6KMZ', location.hostname === 'thermaspace.org' ? {} : { debug_mode: true });
+</script>
+<title>ThermaSpace — Real Thermal Vision for Meta Quest 3 with FLIR One</title>
+<meta name="description" content="ThermaSpace turns a FLIR One USB-C thermal camera and a Meta Quest 3 or 3S into real mixed-reality thermal vision — live heat overlay on passthrough, radiometric captures pinned to your walls, and a 3D-printed headset mount.">
+<link rel="canonical" href="https://thermaspace.org/">
+<link rel="icon" type="image/png" href="/media/favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ThermaSpace">
+<meta property="og:title" content="ThermaSpace — Real Thermal Vision for Meta Quest 3">
+<meta property="og:description" content="Plug a FLIR One into your Quest 3 and see live heat on the real world. Not a simulation — a real 80×60 radiometric sensor, overlaid on passthrough.">
+<meta property="og:url" content="https://thermaspace.org/">
+<meta property="og:image" content="https://thermaspace.org/media/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ThermaSpace — Real Thermal Vision for Meta Quest 3">
+<meta name="twitter:description" content="Plug a FLIR One into your Quest 3 and see live heat on the real world.">
+<meta name="twitter:image" content="https://thermaspace.org/media/og.jpg">
+<meta name="theme-color" content="#0a0812">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "ThermaSpace",
+      "operatingSystem": "Meta Horizon OS (Meta Quest 3, Quest 3S)",
+      "applicationCategory": "UtilitiesApplication",
+      "description": "Real mixed-reality thermal vision for Meta Quest 3: connects a FLIR One USB-C thermal camera and overlays live radiometric heat onto passthrough. Pin thermal captures to your walls, compare rooms on one temperature scale, draw notes in mid-air, and export raw radiometric data over your own Wi-Fi.",
+      "url": "https://thermaspace.org/",
+      "image": "https://thermaspace.org/media/og.jpg",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@type": "Organization", "name": "Opportunity Hack", "url": "https://ohack.org" }
+    },
+    {
+      "@type": "Product",
+      "name": "ThermaSpace FLIR One mount for Meta Quest 3 / 3S",
+      "description": "3D-printed PETG clip mount that holds a FLIR One USB-C thermal camera on a Meta Quest 3 or Quest 3S headset. M5 or M6 thumbscrew knuckle to aim the camera; seats on the visor with a damage-free Command strip. Open-source STL files available free.",
+      "image": "https://thermaspace.org/media/mount-photo.jpg",
+      "brand": { "@type": "Organization", "name": "Opportunity Hack" },
+      "offers": {
+        "@type": "Offer",
+        "price": "19",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://thermaspace.org/#mount"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which FLIR One cameras work with ThermaSpace?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Any FLIR One with a USB-C connector: FLIR One Gen 3, FLIR One Pro LT, and FLIR One Pro. The Lightning (iOS) models do not fit the Quest's USB-C port and are not supported." }
+        },
+        {
+          "@type": "Question",
+          "name": "Which headsets does ThermaSpace support?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Meta Quest 3 and Meta Quest 3S. The app uses color passthrough and the USB-C port, so earlier Quest headsets are not supported." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this real thermal imaging or a visual effect?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Real. ThermaSpace streams the FLIR One's radiometric sensor directly over USB — every pixel is a real temperature in °C or °F. Other thermal-vision apps on the store are simulations; this one requires and uses the physical camera." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a PC or phone?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. The camera plugs straight into the headset's USB-C port and everything runs on the Quest. A phone or computer on the same Wi-Fi can optionally view and export your captures." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does ThermaSpace collect my data?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Nothing is collected or transmitted off the device. Thermal images, room data, and temperature history stay in the app's private storage on your headset. The optional Share feature is off by default and only serves your own devices on your own network." }
+        },
+        {
+          "@type": "Question",
+          "name": "Where do I get the app?",
+          "acceptedAnswer": { "@type": "Answer", "text": "ThermaSpace is headed to the Meta Horizon Store. Until then, fill out the beta signup form at https://forms.gle/mUWpW4UMTXoNnEnE7 to join the beta and get a sideload build with instructions." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use the FLIR One I already use with my phone?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes — it's the same camera. If your FLIR One has USB-C, unplug it from your phone and plug it into the Quest. Nothing is modified, and it keeps working with your phone." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="spanbar" aria-hidden="true">
+  <div class="spanbar-track"><div class="spanbar-tick" id="spanTick"></div></div>
+</div>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="/">
+      <img src="/media/logo.png" alt="" width="30" height="30">
+      <span>Therma<b>Space</b></span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#mount">Mount</a>
+      <a href="#ohack">Opportunity Hack</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-small" href="https://forms.gle/mUWpW4UMTXoNnEnE7" target="_blank" rel="noopener">Join the beta</a>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="readout"><span class="cross">+</span>LIVE&nbsp;·&nbsp;NOT A SIMULATION</p>
+      <h1>Real thermal vision on your <em>Meta&nbsp;Quest&nbsp;3</em></h1>
+      <p class="lead">Plug a <strong>FLIR One</strong> USB-C camera into your Quest 3 or 3S and see live heat on the real world — a genuine radiometric sensor overlaid on passthrough. Watch pipes, breakers, drafts, and 3D printers glow in place.</p>
+      <div class="cta-row">
+        <a class="btn" href="https://forms.gle/mUWpW4UMTXoNnEnE7" target="_blank" rel="noopener">Join the beta — it's free</a>
+        <a class="btn btn-ghost" href="#mount">Get the headset mount</a>
+      </div>
+      <p class="fineprint">Quest 3 &amp; Quest 3S · FLIR One Gen 3 / Pro LT / Pro (USB-C) · Meta Horizon Store — coming soon</p>
+    </div>
+    <figure class="panel hero-panel">
+      <figcaption class="panel-strip"><span>84.4°F (77.8 – 91.4)</span><span>iron · °F</span></figcaption>
+      <video autoplay muted loop playsinline preload="metadata" poster="/media/general_overview_nux-poster.jpg" width="1280" height="720">
+        <source src="/media/general_overview_nux.mp4" type="video/mp4">
+      </video>
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="container">
+    <p class="readout"><span class="cross">+</span>WHAT IT DOES</p>
+    <h2>Thermal imaging that lives in your room</h2>
+    <p class="section-lead">Phone thermal cameras show you a tiny screen. ThermaSpace puts the heat where it actually is — on your walls, your equipment, your house — and remembers it between sessions.</p>
+
+    <div class="feature-grid">
+      <figure class="panel feature">
+        <figcaption class="panel-strip"><span>Pin heat to your walls</span><span>world-locked</span></figcaption>
+        <video muted loop playsinline preload="none" data-inview poster="/media/floating_3_captures-poster.jpg" width="1280" height="720">
+          <source src="/media/floating_3_captures.mp4" type="video/mp4">
+        </video>
+        <p>Captures snap to the real surface you're looking at, sized to the camera's true field of view — and they persist. Walk away, come back tomorrow, the survey is still on the wall.</p>
+      </figure>
+
+      <figure class="panel feature">
+        <figcaption class="panel-strip"><span>Compare on one scale</span><span>shared span</span></figcaption>
+        <video muted loop playsinline preload="none" data-inview poster="/media/gallery-poster.jpg" width="1280" height="720">
+          <source src="/media/gallery.mp4" type="video/mp4">
+        </video>
+        <p>Recall any set of captures from the gallery and they're re-colored onto one shared temperature scale — identical colors mean identical temperatures, room to room.</p>
+      </figure>
+
+      <figure class="panel feature">
+        <figcaption class="panel-strip"><span>Draw notes in mid-air</span><span>anchored ink</span></figcaption>
+        <video muted loop playsinline preload="none" data-inview poster="/media/drawing-poster.jpg" width="1280" height="720">
+          <source src="/media/drawing.mp4" type="video/mp4">
+        </video>
+        <p>Circle the cold corner, mark the leak. Free-space drawings anchor in your room and reload across sessions, with a grab handle to reposition them.</p>
+      </figure>
+
+      <figure class="panel feature">
+        <figcaption class="panel-strip"><span>Palettes, isotherms, span lock</span><span>4 palettes</span></figcaption>
+        <video muted loop playsinline preload="none" data-inview poster="/media/style_modes-poster.jpg" width="1280" height="720">
+          <source src="/media/style_modes.mp4" type="video/mp4">
+        </video>
+        <p>Iron, rainbow, and grayscale palettes; isotherm alarms for the hottest or coldest zones; and a lockable °C/°F color scale for surveys you can actually compare.</p>
+      </figure>
+    </div>
+
+    <div class="mini-grid">
+      <div class="mini">
+        <h3>🔒 Live lock</h3>
+        <p>Lock any placed capture and it becomes a live instrument — every time you glance at it, it refreshes to what the camera sees right now. A thermal gauge for your breaker panel or printer bed.</p>
+      </div>
+      <div class="mini">
+        <h3>📡 Export over your Wi-Fi</h3>
+        <p>One ZIP with color PNGs, raw radiometric data, and context photos — served straight from the headset to your browser. Off by default, protected by a session code.</p>
+      </div>
+      <div class="mini">
+        <h3>🛡 Nothing leaves the headset</h3>
+        <p>No account, no cloud, no telemetry. Every capture and temperature history stays in private storage on your Quest. <a href="/privacy.html">Read the whole privacy policy</a> — it fits in a paragraph.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="how">
+  <div class="container how-grid">
+    <div>
+      <p class="readout"><span class="cross">+</span>SETUP</p>
+      <h2>Working in about a minute</h2>
+      <ol class="steps">
+        <li>
+          <h3>Plug in the FLIR One</h3>
+          <p>The same USB-C camera you use with your phone goes straight into the Quest's USB-C port. Press its side button — the LED pulses when it's on.</p>
+        </li>
+        <li>
+          <h3>Seat it in the mount</h3>
+          <p>The 3D-printed holder sits the camera above your visor, aimed where you look. No mount yet? Hand-holding the camera works fine for a first try.</p>
+        </li>
+        <li>
+          <h3>Look around</h3>
+          <p>ThermaSpace connects automatically and a one-minute tour teaches the basics by doing: overlay on, first capture, gallery. Controllers and bare hands both work.</p>
+        </li>
+      </ol>
+    </div>
+    <figure class="panel">
+      <figcaption class="panel-strip"><span>First launch</span><span>guided tour</span></figcaption>
+      <img src="/media/first_start_nux.jpg" alt="ThermaSpace welcome tour panel in the headset prompting to connect a FLIR One camera" width="1600" height="900" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="mount">
+  <div class="container">
+    <p class="readout"><span class="cross">+</span>HARDWARE</p>
+    <h2>A FLIR One mount for Quest 3 &amp; Quest 3S</h2>
+    <p class="section-lead">Printed in PETG, designed around the Quest 3's depth sensors so nothing is blocked. A clip that bridges the top shell, with a thumbscrew knuckle to aim the camera.</p>
+
+    <div class="mount-grid">
+      <figure class="mount-figure">
+        <img src="/media/mount-photo.jpg" alt="FLIR One Pro thermal camera in the 3D-printed ThermaSpace mount on top of a Meta Quest 3 headset, seated with a Command strip" width="1600" height="2000" loading="lazy">
+        <figcaption>The real thing — a FLIR One Pro in the printed mount on a Quest 3, seated with a damage-free Command strip.</figcaption>
+      </figure>
+      <div class="mount-buy">
+        <ul class="variant-list">
+          <li><b>Clip</b> — bridges the headset's top shell with a sprung rear lip. Quest 3 and 3S sizings.</li>
+          <li><b>Aim it</b> — an M5 or M6 nylon thumbscrew knuckle tilts the camera to match your view.</li>
+        </ul>
+        <p class="mount-note">A small <a href="https://www.homedepot.com/p/Command-Small-5lb-Picture-Hanging-Strips-White-4-Pairs-8-strips-Damage-Free-Ideal-for-Apartments-Dorms-and-Classrooms-17202/100136963" target="_blank" rel="noopener">Command picture-hanging strip</a> seats the clip on the visor — holds firm, peels off clean, leaves no mark on the headset.</p>
+        <div class="buy-card">
+          <div class="buy-price"><span class="price">$19</span><span class="price-note">printed &amp; shipped (US)</span></div>
+          <a class="btn" href="https://buy.stripe.com/14AfZi2OBb7D3gEe0f1RC00">Order a printed mount</a>
+          <p class="buy-note">Every order funds <a href="https://ohack.org">Opportunity Hack</a> education programs.</p>
+        </div>
+        <div class="stl-box">
+          <h3>Or print it yourself — the files are free</h3>
+          <p>Open-source STLs, ~15 g of PETG. M5 or M6 nylon thumbscrew closes the knuckle.</p>
+          <ul class="stl-links">
+            <li><a href="/stl/flirone-clip.stl" download>clip Q3 (M5)</a> · <a href="/stl/flirone-clip-m6.stl" download>M6</a></li>
+            <li><a href="/stl/flirone-clip-q3s.stl" download>clip Q3S (M5)</a> · <a href="/stl/flirone-clip-q3s-m6.stl" download>M6</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="ohack">
+  <div class="container ohack-inner">
+    <p class="readout"><span class="cross">+</span>WHY THIS EXISTS</p>
+    <h2>Built to spark curiosity</h2>
+    <p class="section-lead">ThermaSpace is a project of <a href="https://ohack.org"><b>Opportunity Hack</b></a>, a nonprofit hackathon community that writes code for good. It exists to further education and get people curious about what's around them — the heat you can suddenly see, and the code that makes it visible.</p>
+    <p class="section-lead">Every layer is open for students to pull apart: reverse-engineering a USB protocol, calibrating a radiometric sensor, mapping a room in 3D, anchoring content to real walls. If you teach, tinker, or mentor — this is for you, and we'd love to hear what you do with it.</p>
+    <div class="cta-row">
+      <a class="btn btn-ghost" href="https://ohack.org">Visit ohack.org</a>
+      <a class="btn btn-ghost" href="https://forms.gle/mUWpW4UMTXoNnEnE7" target="_blank" rel="noopener">Talk to us</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="container faq-inner">
+    <p class="readout"><span class="cross">+</span>QUESTIONS</p>
+    <h2>FAQ</h2>
+    <details>
+      <summary>Which FLIR One cameras work?</summary>
+      <p>Any FLIR One with a USB-C connector: <b>FLIR One Gen 3</b>, <b>FLIR One Pro LT</b>, and <b>FLIR One Pro</b>. The Lightning (iOS) models don't fit the Quest's USB-C port and aren't supported.</p>
+    </details>
+    <details>
+      <summary>Which headsets are supported?</summary>
+      <p>Meta <b>Quest 3</b> and <b>Quest 3S</b>. ThermaSpace relies on color passthrough and the USB-C port, so earlier Quests aren't supported.</p>
+    </details>
+    <details>
+      <summary>Is this real thermal imaging or an effect?</summary>
+      <p>Real. ThermaSpace streams the FLIR One's radiometric sensor over USB — every pixel is a real temperature in °C or °F, with a spot meter and min/max span readout. The "thermal vision" apps already on the store are simulations; this one requires the physical camera.</p>
+    </details>
+    <details>
+      <summary>Do I need a PC or a phone?</summary>
+      <p>No. The camera plugs straight into the headset and everything runs on the Quest. A browser on the same Wi-Fi can optionally view the live stream and download your captures.</p>
+    </details>
+    <details>
+      <summary>Does it collect my data?</summary>
+      <p>No. Nothing is collected or transmitted off the device — no account, no analytics sent anywhere. See the <a href="/privacy.html">privacy policy</a>.</p>
+    </details>
+    <details>
+      <summary>Where do I get the app?</summary>
+      <p>It's headed to the Meta Horizon Store. Until then, <a href="https://forms.gle/mUWpW4UMTXoNnEnE7" target="_blank" rel="noopener">fill out the signup form</a> to join the beta — you'll get a build and sideload instructions.</p>
+    </details>
+    <details>
+      <summary>Can I use the FLIR One I already own?</summary>
+      <p>Yes — that's the point. If it has USB-C, unplug it from your phone and plug it into your Quest. Nothing is modified; it keeps working with your phone afterward.</p>
+    </details>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="brand">
+      <img src="/media/logo.png" alt="" width="26" height="26">
+      <span>Therma<b>Space</b></span>
+    </div>
+    <p>Made by <a href="https://ohack.org">Opportunity Hack</a> · <a href="https://forms.gle/mUWpW4UMTXoNnEnE7" target="_blank" rel="noopener">Contact</a> · <a href="/privacy.html">Privacy</a></p>
+    <p class="fineprint">FLIR and FLIR One are trademarks of Teledyne FLIR LLC. Meta and Meta Quest are trademarks of Meta Platforms, Inc. ThermaSpace is an independent project and is not affiliated with, endorsed, or sponsored by either company.</p>
+  </div>
+</footer>
+
+<script src="/script.js" defer></script>
+</body>
+</html>

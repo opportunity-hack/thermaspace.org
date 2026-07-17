@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/hint_card"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RIGHT HAND"
+        android:textColor="#8FA3B8"
+        android:textSize="10sp"
+        android:letterSpacing="0.2"
+        android:paddingBottom="6dp" />
+
+    <LinearLayout style="@style/HintRow">
+        <TextView style="@style/HintChip" android:background="@drawable/hint_chip_alt"
+            android:text="🤏" />
+        <TextView style="@style/HintLabel" android:text="Pinch — select &amp; grab" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/HintRow">
+        <TextView style="@style/HintChip" android:text="👍 TAP" />
+        <TextView style="@style/HintLabel" android:text="👁 Overlay on/off" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/HintRow">
+        <TextView style="@style/HintChip" android:text="⇄" />
+        <TextView style="@style/HintLabel" android:text="🎨 palette (overlay on)" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/HintRow">
+        <TextView style="@style/HintChip" android:text="⇅" />
+        <TextView style="@style/HintLabel" android:text="Hi temp ± (span locked)" />
+    </LinearLayout>
+</LinearLayout>

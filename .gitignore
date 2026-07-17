@@ -1,0 +1,27 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Android / Gradle
+**/build/
+.gradle/
+local.properties
+.cxx/
+captures/
+*.hprof
+
+# Signing — never commit
+*.keystore
+*.jks
+
+# IDE
+.idea/
+*.iml
+
+# Vercel
+.vercel/
+.playwright-mcp/
